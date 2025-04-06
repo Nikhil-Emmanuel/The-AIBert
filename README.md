@@ -8,8 +8,9 @@ This project is a modern, AI-integrated web application with a smooth and profes
 
 - 🔐 Google Sign-In authentication
 - 🧑‍🏫 Connect and manage Google Classroom using OAuth
-- 🧠 Gemini AI-powered quiz generation & evaluation
-- 📋 Auto-create Google Forms with questions 
+- 🧠 Google Gemini-powered quiz generation & evaluation
+- 📋 Auto-create Google Forms with questions
+- 🤖 Evaluate answers with Google Generative AI
 - 📄 Fetch, analyze, and store student responses
 - 📊 Score calculation & detailed feedback per student
 - 📈 Export feedback and scores to Google Sheets
@@ -22,12 +23,12 @@ This project is a modern, AI-integrated web application with a smooth and profes
 
 ```
 📁 Root Directory
-├── 📁 assets/             # Contains all images and icons
-├── 📁 idx/                # (IDX workspace files, not required for deploy)
+├── 📁 assets/             # Contains all images and icons for UI
+├── 📁 idx/                # (IDX workspace and environment files)
 ├── 📁 .vscode/            # VSCode settings
 ├── .gitignore             # Ignore sensitive files like .env
 ├── package.json           # Project dependencies and scripts
-├── server.js              # Backend server handling APIs & OAuth
+├── server.js              # Backend server handling endpoint APIs & OAuth
 ├── .env                   # Your API keys (NOT COMMITTED)
 │
 ├── index.html             # Login page with Google Sign-In
@@ -36,21 +37,21 @@ This project is a modern, AI-integrated web application with a smooth and profes
 │
 ├── dashboard.html         # Main dashboard after login
 ├── dashboard.css          # Styling for the dashboard
-├── dashboard.js           # Fetches students, activities, and test controls
+├── dashboard.js           # Fetches students, activities and user action controls
 │
 ├── chatbot.html           # AI-based quiz generation interface
 ├── chatbot.css            # Styling for chatbot page
-├── chatbot.js             # Calls Gemini and handles form creation
+├── chatbot.js             # Invokes Gemini models and handles form creation
 │
 ├── grades.html            # Shows student grades & feedback
 ├── grades.css             # Styling for grades
 ├── grades.js              # Fetches and renders grades
 │
-├── result.html            # View exported sheets and topic logs
+├── result.html            # View exported sheets and question topic
 ├── result.css             # Styling for results
 ├── result.js              # Displays list of exported sheets with timestamps
 │
-├── gemini.js              # Core Gemini API logic for feedback & question generation
+├── gemini.js              # Core Gemini API logic for prompting, feedback & question generation
 ├── mobile.css             # Responsive styles for smaller screens
 ```
 
@@ -104,7 +105,7 @@ npm run dev
 ### 5. **🚀 Deployment on AWS EC2**
 - This project can be easily deployed to an AWS EC2 instance:
 - Host both the Vite frontend and Node.js backend (server.js).
-- Clone the repo on your EC2 instance and bash ``` run npm install && npm run build```.
+- Clone the repo on your EC2 instance and run bash ``` run npm install ``` && ```npm run build```.
 - Use PM2 to run the backend (server.js) persistently.
 - Use Nginx as a reverse proxy to serve the Vite build (```dist/```) and forward ```/api``` calls to your Node.js server.
 - Environment variables (like ```MONGO_URI, GOOGLE_CLIENT_ID```) are securely stored in a .env file in the root directory — it’s ignored from Git via .gitignore.
@@ -126,7 +127,7 @@ npm run dev
 | `result.html`      | Shows exported Google Sheets with topic and timestamp |
 | `result.js`        | Lists Google Sheets links from MongoDB |
 | `gemini.js`        | Handles interaction with Gemini model and prompt structuring |
-| `server.js`        | Backend logic: OAuth, DB, Forms, Sheets |
+| `server.js`        | Backend logic: OAuth, DataBase, Forms, Sheets, API Calls |
 | `package.json`     | Lists dependencies like `googleapis`, `vite`, `generativeAI` |
 | `.env`             | Keeps sensitive API keys secure |
 | `assets/`          | Contains images used in UI |
@@ -137,11 +138,12 @@ npm run dev
 ## ☁️ Cloud Services Used
 
 - **Google's Project IDX** for code development and testing
+- **Gemini API (Google Generative AI)** for evaluation and question generation
+- **Google Cloud Console** for API and scope configurations
 - **Google OAuth 2.0** for authentication
 - **Google Classroom API** for accessing existing class and student interaction
 - **Google Forms API** to auto-create quizzes and extract responses
 - **Google Sheets API** to export results
-- **Gemini API (Google Generative AI)** for evaluation and question generation
 - **MongoDB Atlas** for storing responses & logs
 
 ---
@@ -149,12 +151,12 @@ npm run dev
 ## 🧪 Sample Usage Flow
 
 1. Teacher login using Google Sign-In on `index.html`.
-2. Enter or create a Google Classroom.
-3. Navigate to the chatbot, generate a quiz, and post it.
-4. Students respond via the Google Form.
-5. Teacher clicks "Grade" to get Gemini feedback.
-6. View results and scores in `grades.html`.
-7. Export them to Google Sheets and view via `result.html`.
+2. Enters Classroom Code or creates a  Google Classroom.
+3. Navigates to the chatbot, generates a quiz, review the questions and post it.
+4. Students respond via the Google Form posted on Google Classroom.
+5. Teacher waits until due date and clicks "Grade" to evaluate responses and feedback using Gemini AI in `grade.html`.
+6. Views results, scores and feedbacks as Google Sheets  in `result.html`.
+7. Contains individual sheet for each student, which can then be reviewed and exported.
 
 ---
 
@@ -163,6 +165,14 @@ npm run dev
 - Never expose your `.env` file
 - Use `.gitignore` to exclude sensitive files
 - Always use HTTPS when deployed
+
+---
+
+## 🔮 Future Improvements 
+- Will be able to grade paper manuscripts
+- Upload pictures, PDFs, texts,etc
+- Enabling text recognition using OCR technologies
+- Further easing the burden on teachers by assisting in grading and feedbacks
 
 ---
 
