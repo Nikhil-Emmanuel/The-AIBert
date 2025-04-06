@@ -1,6 +1,6 @@
-# 📚 AI-Powered Google Classroom Assistant 🚀
+# 📚 The AIBert - The Teacher's Friend 🚀
 
-This project is a modern, AI-integrated web application for teachers and educators. It enables effortless interaction with Google Classroom and Google Forms to generate quizzes, collect responses, evaluate them using the Gemini AI model, and provide individual feedback—all with a smooth and professional interface.
+This project is a modern, AI-integrated web application with a smooth and professional interface for teachers and educators. It enables effortless interaction with Google Classroom, Google Forms and Google Sheets to generate quizzes, collect responses, evaluate them using Google's Gemini Generative AI model, and provide individual feedback - All these at the tip of your fingertips ! 
 
 ---
 
@@ -14,7 +14,7 @@ This project is a modern, AI-integrated web application for teachers and educato
 - 📊 Score calculation & detailed feedback per student
 - 📈 Export feedback and scores to Google Sheets
 - 🌐 Deployed using Vite + Amazon Web Service (AWS)
-- 💾 MongoDB integration for logs & activity
+- 💾 MongoDB integration for activity logs and recovery
 
 ---
 
