@@ -102,16 +102,6 @@ npm run dev
 
 ---
 
-### 5. **🚀 Deployment on AWS EC2**
-- This project can be easily deployed to an AWS EC2 instance:
-- Host both the Vite frontend and Node.js backend (server.js).
-- Clone the repo on your EC2 instance and run bash ``` run npm install ``` && ```npm run build```.
-- Use PM2 to run the backend (server.js) persistently.
-- Use Nginx as a reverse proxy to serve the Vite build (```dist/```) and forward ```/api``` calls to your Node.js server.
-- Environment variables (like ```MONGO_URI, GOOGLE_CLIENT_ID```) are securely stored in a .env file in the root directory — it’s ignored from Git via .gitignore.
-
----
-
 ## 🧾 What Each File Does (Explained Briefly)
 
 | File/Folder        | Purpose |
