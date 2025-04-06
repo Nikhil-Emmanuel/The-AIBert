@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIBert Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="mobile.css" media="max-width: 768px">
+    <script type="module" src="dashboard.js" defer></script>
+</head>
+<body>
+    <header class="dashboard-header">
+    <h2 id="className">Class: Loading...</h2>
+</header>
+
+    <div class="dashboard">
+        <div class="sidebar left-sidebar">
+            <h2>Members</h2>
+            <ol id="classMembersList"></ol>
+        </div>
+
+        <div class="activities-container">
+            <h2>Recent Activities</h2>
+            <div id="recent-activities">
+                <p>Loading recent activities...</p>
+            </div>
+        </div>
+
+        <div class="sidebar right-sidebar">
+            <h2>Options</h2>
+            <button id="createTest">Create Test</button>
+            <button id="viewResults">Grade Results</button>
+            <button id="viewFeedback">View Result / Feedback</button>
+            <button id="logout">Logout</button>
+        </div>
+    </div>
+</body>
+</html>

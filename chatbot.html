@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIBert Question Generator</title>
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="mobile.css" media="max-width: 768px">
+</head>
+
+<body>
+    <div class="chat-container">
+        <header>
+            <h2>AIBert Question Generator</h2>
+            <button id="backToDashboard">Back to Dashboard</button>
+        </header>
+
+        <div class="chat-box">
+            <input type="text" id="promptInput" placeholder="Enter topic (e.g., Photosynthesis, Algebra, World War II)">
+            <button id="generateBtn">Generate Questions</button>
+        </div>
+
+        <div class="response-section" id="responseSection" style="display: none;">
+            <h3>Generated Questions:</h3>
+            <ul id="responseContainer"></ul>
+        </div>
+            <button id="createFormBtn" style="display: none;">Create Google Form</button>
+    </div>
+
+    <script type="module" src="chatbot.js"></script>
+</body>
+</html>
