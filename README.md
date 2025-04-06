@@ -148,6 +148,8 @@ npm run dev
 6. Views results, scores and feedbacks as Google Sheets  in `result.html`.
 7. Contains individual sheet for each student, which can then be reviewed and exported.
 
+8. Demo account : Email    - gdg25demo@gmail.com
+                  Password - AIBertGDG25
 ---
 
 ## 🛡️ Security Tips
