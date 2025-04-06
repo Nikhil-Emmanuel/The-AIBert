@@ -22,9 +22,9 @@ This project is a modern, AI-integrated web application with a smooth and profes
 
 ```
 📁 Root Directory
-├── 📁 assets/              # Contains all images and icons
-├── 📁 idx/                 # (IDX workspace files, not required for deploy)
-├── 📁 .vscode/             # VSCode settings
+├── 📁 assets/             # Contains all images and icons
+├── 📁 idx/                # (IDX workspace files, not required for deploy)
+├── 📁 .vscode/            # VSCode settings
 ├── .gitignore             # Ignore sensitive files like .env
 ├── package.json           # Project dependencies and scripts
 ├── server.js              # Backend server handling APIs & OAuth
@@ -80,11 +80,11 @@ npm install
 Create a `.env` in the **root directory** and add your sensitive credentials:
 
 ```env
-OAUTH_CLIENT_ID=your_google_oauth_client_id
-OAUTH_CLIENT_SECRET=your_google_oauth_client_secret
+VITE_GOOGLE_CLIENT_ID=your_google_oauth_client_id
+VITE_GOOGLE_CLIENT_SECRET=your_google_oauth_client_secret
 MONGODB_URI=your_mongodb_connection_string
-GEMINI_API_KEY=your_gemini_api_key
-GOOGLE_API_KEY=your_google_api_key (if needed)
+VITE_GEMINI_API_KEY=your_gemini_api_key
+VITE_GOOGLE_CLASSROOM_API_KEY=your_google_api_key (if needed)
 ```
 
 > ✅ **Do NOT commit your `.env` file.** It's listed in `.gitignore` for safety.
