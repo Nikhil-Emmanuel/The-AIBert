@@ -9,11 +9,11 @@ This project is a modern, AI-integrated web application for teachers and educato
 - 🔐 Google Sign-In authentication
 - 🧑‍🏫 Connect and manage Google Classroom using OAuth
 - 🧠 Gemini AI-powered quiz generation & evaluation
-- 📋 Auto-create Google Forms with questions
+- 📋 Auto-create Google Forms with questions 
 - 📄 Fetch, analyze, and store student responses
 - 📊 Score calculation & detailed feedback per student
 - 📈 Export feedback and scores to Google Sheets
-- 🌐 Deployed using Vite + Cloud Run
+- 🌐 Deployed using Vite + Amazon Web Service (AWS)
 - 💾 MongoDB integration for logs & activity
 
 ---
@@ -61,8 +61,8 @@ This project is a modern, AI-integrated web application for teachers and educato
 ### 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/Nikhil-Emmanuel/The-AIBert.git
+cd The-AIBert
 ```
 
 ---
@@ -115,37 +115,38 @@ npm run dev
 |--------------------|---------|
 | `index.html`       | Entry point, handles login and Classroom code |
 | `main.js`          | Handles Google Sign-In, token, and navigation |
-| `dashboard.html`   | Main interface post login |
-| `dashboard.js`     | Fetches students, activity logs, class data |
-| `chatbot.html`     | Gemini-based quiz and question generation |
-| `chatbot.js`       | Sends topic to Gemini and creates Google Form |
-| `grades.html`      | Shows scores and AI feedback |
-| `grades.js`        | Fetches and renders graded scores |
-| `result.html`      | Shows exported Google Sheets with topic/time |
-| `result.js`        | Lists Sheets links from MongoDB |
-| `gemini.js`        | Handles interaction with Gemini model |
+| `dashboard.html`   | Main dashboard interface post login |
+| `dashboard.js`     | Fetches students, activity logs, class data and action links|
+| `chatbot.html`     | Gemini-based quiz and question generator |
+| `chatbot.js`       | Sends topic to Gemini and creates Google Form with integration |
+| `grades.html`      | Shows scores and AI-based feedback |
+| `grades.js`        | Fetches and renders graded scores into readable formats |
+| `result.html`      | Shows exported Google Sheets with topic and timestamp |
+| `result.js`        | Lists Google Sheets links from MongoDB |
+| `gemini.js`        | Handles interaction with Gemini model and prompt structuring |
 | `server.js`        | Backend logic: OAuth, DB, Forms, Sheets |
-| `package.json`     | Lists dependencies like `express`, `vite`, `mongoose` |
+| `package.json`     | Lists dependencies like `googleapis`, `vite`, `generativeAI` |
 | `.env`             | Keeps sensitive API keys secure |
-| `assets/`          | Images used in UI |
-| `mobile.css`       | Makes the site responsive for all screens |
+| `assets/`          | Contains images used in UI |
+| `mobile.css`       | Makes the site responsive for mobile device screens |
 
 ---
 
 ## ☁️ Cloud Services Used
 
+- **Google's Project IDX** for code development and testing
 - **Google OAuth 2.0** for authentication
-- **Google Classroom API** for class/students
-- **Google Forms API** to auto-create quizzes
+- **Google Classroom API** for accessing existing class and student interaction
+- **Google Forms API** to auto-create quizzes and extract responses
 - **Google Sheets API** to export results
-- **Gemini API (Google AI)** for evaluation and question generation
+- **Gemini API (Google Generative AI)** for evaluation and question generation
 - **MongoDB Atlas** for storing responses & logs
 
 ---
 
 ## 🧪 Sample Usage Flow
 
-1. Login using Google Sign-In on `index.html`.
+1. Teacher login using Google Sign-In on `index.html`.
 2. Enter or create a Google Classroom.
 3. Navigate to the chatbot, generate a quiz, and post it.
 4. Students respond via the Google Form.
@@ -160,12 +161,6 @@ npm run dev
 - Never expose your `.env` file
 - Use `.gitignore` to exclude sensitive files
 - Always use HTTPS when deployed
-
----
-
-## 👨‍💻 Contributing
-
-Pull requests are welcome! Feel free to fork and suggest improvements.
 
 ---
 
