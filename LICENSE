@@ -1,21 +1,98 @@
-MIT License
+# Software License Agreement
 
-Copyright (c) 2025 T Nikhil Emmanuel
+**Software Title:** The AIBert  
+**Version:** 1.0  
+**Author:** T Nikhil Emmanuel  
+**Effective Date:** [2025-05-31]
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+---
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## 1. Grant of License
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Subject to the terms and conditions of this Agreement, the Author hereby grants to the Licensee a limited, non-exclusive, non-transferable, revocable license to use the Software **for non-commercial or approved commercial purposes** as outlined below.
+
+---
+
+## 2. Permitted Use
+
+### a. Non-Profit Use
+
+The Software may be used free of charge by:
+- Individuals
+- Non-profit organizations
+- Academic institutions
+
+**Provided that:**
+- The use is strictly for **non-commercial, educational, or charitable purposes**.
+- No revenue is generated directly or indirectly through the use of the Software.
+
+### b. Commercial Use
+
+Commercial use is permitted **only under the following conditions**:
+
+- The commercial entity must obtain a commercial license from the Author.
+- The commercial entity must **recognize the use of this Software** in product documentation or "About" sections as:
+
+  > “Powered by *THE AIBERT* – Licensed by T Nikhil Emmanuel”
+
+- The commercial entity must **pay 5% of gross profits** generated from any product, service, or solution that incorporates or relies on this Software, directly or indirectly.
+
+Failure to comply constitutes a material breach of this Agreement.
+
+---
+
+## 3. Restrictions
+
+The Licensee shall **not**:
+
+- Redistribute, sublicense, or sell the Software without prior written permission from the Author.
+- Modify or reverse engineer the Software for redistribution or commercial resale.
+- Remove or obscure any notices of proprietary rights or attribution.
+
+---
+
+## 4. Audit and Reporting
+
+For-profit entities must maintain accurate records of revenue associated with any products or services using the Software and shall provide such records upon reasonable request by the Author.
+
+---
+
+## 5. Termination
+
+This license is automatically terminated if:
+
+- The Licensee breaches any term of this Agreement.
+- The Licensee fails to make required commercial payments.
+
+Upon termination, the Licensee must cease all use of the Software and destroy all copies in their possession.
+
+---
+
+## 6. No Warranty
+
+The Software is provided “AS IS” without any warranties of any kind, express or implied, including but not limited to fitness for a particular purpose or non-infringement.
+
+---
+
+## 7. Limitation of Liability
+
+In no event shall the Author be liable for any damages arising out of the use or inability to use the Software, even if advised of the possibility of such damages.
+
+---
+
+## 8. Governing Law
+
+This Agreement shall be governed by and construed in accordance with the laws of *The Country of India*. Any disputes arising from this Agreement shall be resolved in the courts of Karnataka High Court.
+
+---
+
+## 9. Contact and Licensing Inquiries
+
+For commercial licensing, permissions, or inquiries, contact:  
+📧 t.nikhil@btech.christuniversity.in  
+
+---
+
+## 10. Acknowledgment
+
+By using or accessing the Software, the Licensee agrees to be bound by the terms of this License Agreement.
