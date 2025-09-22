@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Assisted Grading System</title>
+    <link rel="stylesheet" href="grading.css">
+    <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI-Assisted Grading System</h1>
+            <nav>
+                <button id="backToDashboard" class="nav-btn">← Dashboard</button>
+                <button id="analyticsBtn" class="nav-btn">📊 Analytics</button>
+                <button id="reviewQueueBtn" class="nav-btn">👁️ Review Queue</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- OCR Upload Section -->
+            <section id="ocrSection" class="section">
+                <h2>📄 Upload Exam Scripts</h2>
+                <div class="upload-area">
+                    <div id="dropZone" class="drop-zone">
+                        <div class="drop-zone-content">
+                            <i class="upload-icon">📁</i>
+                            <p>Drag and drop exam scripts here or click to browse</p>
+                            <input type="file" id="fileInput" accept="image/*" multiple hidden>
+                            <button id="browseBtn" class="btn-secondary">Browse Files</button>
+                        </div>
+                    </div>
+                    
+                    <div class="upload-options">
+                        <label for="documentType">Document Type:</label>
+                        <select id="documentType">
+                            <option value="mixed">Mixed (Handwritten + Printed)</option>
+                            <option value="handwritten">Handwritten Only</option>
+                            <option value="printed">Printed Only</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="uploadProgress" class="progress-container" style="display: none;">
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                    <span id="progressText">Processing...</span>
+                </div>
+            </section>
+
+            <!-- Manual Grading Section -->
+            <section id="manualGradingSection" class="section">
+                <h2>✏️ Manual Grading</h2>
+                <div class="grading-form">
+                    <div class="form-group">
+                        <label for="questionInput">Question:</label>
+                        <textarea id="questionInput" placeholder="Enter the question text..." rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="studentAnswerInput">Student Answer:</label>
+                        <textarea id="studentAnswerInput" placeholder="Enter student's answer..." rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="correctAnswerInput">Correct Answer:</label>
+                        <textarea id="correctAnswerInput" placeholder="Enter the correct answer..." rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="maxScoreInput">Maximum Score:</label>
+                        <input type="number" id="maxScoreInput" value="100" min="1" max="1000">
+                    </div>
+                    
+                    <button id="gradeAnswerBtn" class="btn-primary">🎯 Grade Answer</button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="section" style="display: none;">
+                <h2>📊 Grading Results</h2>
+                <div id="gradingResults" class="results-container">
+                    <!-- Results will be populated here -->
+                </div>
+            </section>
+
+            <!-- Batch Processing Section -->
+            <section id="batchSection" class="section">
+                <h2>📋 Batch Processing</h2>
+                <div class="batch-controls">
+                    <button id="processBatchBtn" class="btn-primary">Process All Uploaded Scripts</button>
+                    <button id="exportResultsBtn" class="btn-secondary">📥 Export Results</button>
+                </div>
+                
+                <div id="batchResults" class="batch-results">
+                    <!-- Batch results will be shown here -->
+                </div>
+            </section>
+
+            <!-- Analytics Dashboard -->
+            <section id="analyticsSection" class="section" style="display: none;">
+                <h2>📈 Analytics Dashboard</h2>
+                <div class="analytics-controls">
+                    <select id="reportType">
+                        <option value="student">Student Report</option>
+                        <option value="class">Class Report</option>
+                        <option value="system">System Report</option>
+                    </select>
+                    
+                    <input type="text" id="studentIdInput" placeholder="Student ID (for student reports)">
+                    <input type="text" id="examIdInput" placeholder="Exam ID (optional)">
+                    
+                    <button id="generateReportBtn" class="btn-primary">Generate Report</button>
+                </div>
+                
+                <div id="analyticsResults" class="analytics-results">
+                    <!-- Analytics results will be displayed here -->
+                </div>
+            </section>
+
+            <!-- Review Queue Section -->
+            <section id="reviewQueueSection" class="section" style="display: none;">
+                <h2>👁️ Human Review Queue</h2>
+                <div class="queue-controls">
+                    <select id="queueFilter">
+                        <option value="pending">Pending Review</option>
+                        <option value="in_review">In Review</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                    
+                    <select id="priorityFilter">
+                        <option value="">All Priorities</option>
+                        <option value="3">High Priority</option>
+                        <option value="2">Medium Priority</option>
+                        <option value="1">Low Priority</option>
+                    </select>
+                    
+                    <button id="refreshQueueBtn" class="btn-secondary">🔄 Refresh</button>
+                </div>
+                
+                <div id="reviewQueue" class="review-queue">
+                    <!-- Review queue items will be displayed here -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Modal for detailed review -->
+        <div id="reviewModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Review Item</h3>
+                    <span id="closeModal" class="close">&times;</span>
+                </div>
+                
+                <div class="modal-body">
+                    <div id="reviewItemDetails">
+                        <!-- Review item details will be populated here -->
+                    </div>
+                    
+                    <div class="review-form">
+                        <div class="form-group">
+                            <label for="humanScore">Human Score:</label>
+                            <input type="number" id="humanScore" min="0" max="100">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="humanFeedback">Human Feedback:</label>
+                            <textarea id="humanFeedback" rows="4"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reviewNotes">Review Notes:</label>
+                            <textarea id="reviewNotes" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="review-actions">
+                            <button id="approveBtn" class="btn-success">✅ Approve</button>
+                            <button id="rejectBtn" class="btn-danger">❌ Reject</button>
+                            <button id="needsRevisionBtn" class="btn-warning">🔄 Needs Revision</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading overlay -->
+        <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p>Processing...</p>
+        </div>
+    </div>
+
+    <script type="module" src="grading.js"></script>
+</body>
+</html>
