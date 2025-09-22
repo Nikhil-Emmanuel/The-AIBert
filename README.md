@@ -1,58 +1,95 @@
-# 📚 The AIBert - The Teacher's Friend 🚀
+# 🤖 The AIBert - AI-Assisted Grading and Educational System
 
-This project is a modern, AI-integrated web application with a smooth and professional interface for teachers and educators. It enables effortless interaction with Google Classroom, Google Forms and Google Sheets to generate quizzes, collect responses, evaluate them using Google's Gemini Generative AI model, and provide individual feedback - All these at the tip of your fingertips ! 
+A comprehensive AI-powered educational platform that combines intelligent tutoring, automated grading, and advanced analytics to enhance the learning experience for both students and educators. This modern web application provides seamless integration with Google Classroom while offering cutting-edge AI capabilities for educational assessment.
 
 ---
 
-## 🛠️ Features
+## 🌟 Features
 
+### 🎯 Core Educational Platform
 - 🔐 Google Sign-In authentication
 - 🧑‍🏫 Connect and manage Google Classroom using OAuth
 - 🧠 Google Gemini-powered quiz generation & evaluation
 - 📋 Auto-create Google Forms with questions
-- 🤖 Evaluate answers with Google Generative AI
 - 📄 Fetch, analyze, and store student responses
-- 📊 Score calculation & detailed feedback per student
 - 📈 Export feedback and scores to Google Sheets
 - 🌐 Deployed using Vite + Amazon Web Service (AWS)
 - 💾 MongoDB integration for activity logs and recovery
 
+### 🤖 Advanced AI Grading System
+- **Automated Grading**: Deep learning-based answer evaluation with multiple criteria
+- **OCR Integration**: Handwritten and printed text recognition for exam scripts
+- **Semantic Analysis**: BERT/SBERT models for deep answer understanding
+- **Intelligent Feedback**: Automated generation of detailed, personalized feedback
+- **Human Verification**: Quality control system for flagged responses
+- **Analytics Dashboard**: Comprehensive performance insights and trend analysis
+- **Answer Mapping**: Regex and semantic matching for structured answer extraction
+
 ---
+
+## 🏗️ System Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        Frontend Layer                           │
+├─────────────────────────────────────────────────────────────────┤
+│  • HTML/CSS/JS Interface  • Grading Dashboard  • Analytics UI   │
+└─────────────────────────────────────────────────────────────────┘
+                                    │
+┌─────────────────────────────────────────────────────────────────┐
+│                      AI Backend (Flask)                         │
+├─────────────────────────────────────────────────────────────────┤
+│  • OCR Module          • Grading Engine      • Feedback Gen     │
+│  • Human Verification  • Answer Mapper       • Analytics        │
+│  • AIML Manager        • Educational AI      • Training Mgr     │
+└─────────────────────────────────────────────────────────────────┘
+                                    │
+┌─────────────────────────────────────────────────────────────────┐
+│                      ML Models Layer                            │
+├─────────────────────────────────────────────────────────────────┤
+│  • TrOCR (Handwriting)  • BERT/SBERT (Grading)                 │
+│  • Sentence Transformers • Intent Classification                │
+│  • Sentiment Analysis   • Educational Assistant                 │
+└─────────────────────────────────────────────────────────────────┘
+```
 
 ## 📁 Directory Structure
 
 ```
-📁 Root Directory
-├── 📁 assets/             # Contains all images and icons for UI
-├── 📁 idx/                # (IDX workspace and environment files)
-├── 📁 .vscode/            # VSCode settings
-├── .gitignore             # Ignore sensitive files like .env
-├── package.json           # Project dependencies and scripts
-├── server.js              # Backend server handling endpoint APIs & OAuth
-├── .env                   # Your API keys (NOT COMMITTED)
+📁 The-AIBert/
+├── 📁 ai_backend/             # Python Flask AI backend
+│   ├── app.py                 # Main Flask application
+│   ├── 📁 ml_models/          # Machine learning models
+│   │   ├── ocr_module.py      # OCR processing (TrOCR + Tesseract)
+│   │   ├── grading_engine.py  # Advanced grading with BERT/SBERT
+│   │   ├── feedback_generator.py # Intelligent feedback generation
+│   │   ├── human_verification.py # Human review system
+│   │   ├── answer_mapper.py   # Answer extraction and mapping
+│   │   └── educational_assistant.py # AI tutoring assistant
+│   ├── 📁 aiml_engine/        # AIML processing
+│   ├── 📁 analytics/          # Performance analytics
+│   └── 📁 utils/              # Utility functions
 │
-├── index.html             # Login page with Google Sign-In
-├── index.css              # Styling for index.html
-├── main.js                # Handles login/auth logic
+├── 📁 assets/                 # UI images and icons
+├── 📁 .vscode/                # VSCode settings
+├── .gitignore                 # Ignore sensitive files
+├── package.json               # Node.js dependencies
+├── requirements.txt           # Python dependencies
+├── server.js                  # Node.js server for OAuth
+├── .env                       # Environment variables (NOT COMMITTED)
 │
-├── dashboard.html         # Main dashboard after login
-├── dashboard.css          # Styling for the dashboard
-├── dashboard.js           # Fetches students, activities and user action controls
+├── index.html                 # Main login page
+├── grading.html               # AI grading system interface
+├── dashboard.html             # Teacher dashboard
+├── chatbot.html               # AI quiz generation
+├── grades.html                # Student grades view
+├── result.html                # Results and analytics
 │
-├── chatbot.html           # AI-based quiz generation interface
-├── chatbot.css            # Styling for chatbot page
-├── chatbot.js             # Invokes Gemini models and handles form creation
-│
-├── grades.html            # Shows student grades & feedback
-├── grades.css             # Styling for grades
-├── grades.js              # Fetches and renders grades
-│
-├── result.html            # View exported sheets and question topic
-├── result.css             # Styling for results
-├── result.js              # Displays list of exported sheets with timestamps
-│
-├── gemini.js              # Core Gemini API logic for prompting, feedback & question generation
-├── mobile.css             # Responsive styles for smaller screens
+├── grading.css                # Grading system styles
+├── grading.js                 # Grading system functionality
+├── gemini.js                  # Gemini API integration
+├── mobile.css                 # Responsive styles
+└── test_grading_system.py     # Comprehensive test suite
 ```
 
 ---
@@ -76,16 +113,33 @@ npm install
 
 ---
 
-### 3. **Create a `.env` file**
+### 3. **Install Python dependencies for AI backend**
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. **Create a `.env` file**
 
 Create a `.env` in the **root directory** and add your sensitive credentials:
 
 ```env
+# Google OAuth & API Configuration
 VITE_GOOGLE_CLIENT_ID=your_google_oauth_client_id
 VITE_GOOGLE_CLIENT_SECRET=your_google_oauth_client_secret
-MONGODB_URI=your_mongodb_connection_string
 VITE_GEMINI_API_KEY=your_gemini_api_key
-VITE_GOOGLE_CLASSROOM_API_KEY=your_google_api_key (if needed)
+VITE_GOOGLE_CLASSROOM_API_KEY=your_google_api_key
+
+# Database Configuration
+MONGODB_URI=your_mongodb_connection_string
+
+# AI Backend Configuration
+AI_BACKEND_PORT=5000
+FLASK_DEBUG=False
+
+# Model Configuration (Optional)
+CUDA_VISIBLE_DEVICES=0
+MODEL_CACHE_DIR=./models
 ```
 
 > ✅ **Do NOT commit your `.env` file.** It's listed in `.gitignore` for safety.
@@ -160,11 +214,100 @@ npm run dev
 
 ---
 
-## 🔮 Future Improvements 
-- Will be able to grade paper manuscripts
-- Upload pictures, PDFs, texts,etc
-- Enabling text recognition using OCR technologies
-- Further easing the burden on teachers by assisting in grading and feedbacks
+## 🤖 AI Grading System - Advanced Features
+
+### 🎯 Automated Grading Capabilities
+
+The AIBert now includes a comprehensive AI-powered grading system with the following features:
+
+#### 📝 OCR Integration
+- **Handwritten Text Recognition**: Using Microsoft's TrOCR model for accurate handwriting detection
+- **Printed Text Processing**: Tesseract OCR for typed documents
+- **Multi-format Support**: Process images, PDFs, and scanned documents
+- **Confidence Scoring**: Each extracted text comes with confidence metrics
+
+#### 🧠 Intelligent Grading Engine
+- **Semantic Analysis**: BERT/SBERT models for deep understanding of answers
+- **Multi-criteria Evaluation**:
+  - Semantic Similarity (35%)
+  - Factual Accuracy (25%)
+  - Completeness (20%)
+  - Relevance (10%)
+  - Clarity & Coherence (10%)
+- **Customizable Rubrics**: Adjust weights based on subject requirements
+
+#### 💬 Feedback Generation
+- **Personalized Feedback**: AI-generated detailed explanations
+- **Performance Categorization**: Excellent, Good, Fair, Poor with specific recommendations
+- **Improvement Suggestions**: Targeted advice for student growth
+
+#### 👥 Human Verification System
+- **Quality Control**: Automatic flagging of uncertain grades for human review
+- **Review Queue**: Organized workflow for educators to verify AI decisions
+- **Confidence Thresholds**: Configurable limits for automatic vs. manual review
+
+#### 📊 Advanced Analytics
+- **Student Performance Tracking**: Individual progress over time
+- **Class-wide Insights**: Identify trends and areas needing attention
+- **Grading Consistency**: Monitor AI performance and accuracy
+- **Export Capabilities**: Generate reports in multiple formats
+
+### 🚀 Getting Started with AI Grading
+
+1. **Access the AI Grading System**: Click "🤖 AI Grading System" from the main dashboard
+2. **Upload Documents**: Drag and drop exam scripts or type answers manually
+3. **Configure Settings**: Set grading criteria and maximum scores
+4. **Review Results**: Examine AI-generated scores and feedback
+5. **Human Verification**: Review flagged items in the verification queue
+6. **Generate Reports**: Create comprehensive analytics and export data
+
+### 📊 API Endpoints for AI Grading
+
+```bash
+# Comprehensive grading with all features
+POST /grading/comprehensive
+{
+  "question": "Explain photosynthesis",
+  "student_answer": "Plants make food using sunlight",
+  "correct_answer": "Photosynthesis is the process...",
+  "student_id": "student123",
+  "exam_id": "biology_exam_1"
+}
+
+# OCR processing for handwritten text
+POST /ocr/process
+{
+  "image": "base64_encoded_image",
+  "document_type": "handwritten"
+}
+
+# Extract structured Q&A pairs
+POST /ocr/extract_answers
+{
+  "ocr_text": "Question 1: What is AI? Answer: Artificial Intelligence",
+  "expected_questions": ["What is AI?"]
+}
+
+# Analytics and reporting
+GET /analytics/student/{student_id}?days=30
+GET /analytics/class/{exam_id}
+GET /analytics/system
+```
+
+### 🧪 Testing the AI System
+
+Run comprehensive tests for all AI components:
+
+```bash
+# Test the complete AI grading system
+python test_grading_system.py
+
+# Test specific components
+python -m unittest test_grading_system.TestOCRModule
+python -m unittest test_grading_system.TestGradingEngine
+python -m unittest test_grading_system.TestFeedbackGenerator
+python -m unittest test_grading_system.TestHumanVerification
+```
 
 ---
 
